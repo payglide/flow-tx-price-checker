@@ -1,0 +1,28 @@
+{
+  "name": "@payglide/tx-repository",
+  "version": "0.0.0",
+  "description": "",
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "typings.d.ts"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig-build.json",
+    "clean": "rimraf ./dist",
+    "test": "jest --passWithNoTests --maxWorkers=1",
+    "verify": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@payglide/price-checker": "*"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}

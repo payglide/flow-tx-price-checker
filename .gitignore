@@ -1,0 +1,12 @@
+node_modules/
+.idea
+.vscode
+*.iml
+.DS_Store
+lerna-debug.log
+.husky/_
+
+# Build
+dist/
+yarn-error.log
+lerna-debug.log
