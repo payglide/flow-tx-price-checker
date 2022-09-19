@@ -23,7 +23,11 @@
     "typeRoots": [
       "./node_modules/@types"
     ],
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@payglide/price-checker": ["./packages/price-checker"],
+      "@payglide/tx-reposity": ["./packages/tx-repository"]
+    }
   },
   "exclude": [
     "node_modules",
