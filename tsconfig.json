@@ -23,10 +23,7 @@
     "typeRoots": [
       "./node_modules/@types"
     ],
-    "baseUrl": ".",
-    "paths": {
-      "@payglide/price-checker": ["./packages/price-checker/src"]
-    }
+    "baseUrl": "."
   },
   "exclude": [
     "node_modules",

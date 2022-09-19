@@ -8,5 +8,7 @@ module.exports = {
     '^.+\\.ts?$': 'ts-jest',
   },
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>/src/' }),
+  moduleNameMapper: pathsToModuleNameMapper({
+    "@payglide/price-checker": ["../../packages/price-checker/src"]
+  }, { prefix: '<rootDir>/src/' }),
 }
