@@ -22,7 +22,7 @@ class MockRepo implements TxRepository {
     return {
       name: 'test',
       hash,
-      validationStrategy: 'scriptExecution',
+      validationStrategy: 'scriptBasedAmount',
       script: returnWhatPassedIn,
       argumentIndices: [0],
       currency: 'FUSD',

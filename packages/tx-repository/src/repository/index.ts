@@ -11,6 +11,7 @@ import {
   TopShot,
   Versus,
   Rarible,
+  GoatedGoats,
 } from '../scripts'
 import { TxRepository, PriceCheckParams } from '@payglide/price-checker'
 
@@ -28,7 +29,7 @@ const localValidationDataStore: any = {
   e0263528a4bab6e767b6e01e6687bb71a6e286ca7725034c96f4f560ebf316c7: {
     name: 'starly.cdc',
     hash: 'e0263528a4bab6e767b6e01e6687bb71a6e286ca7725034c96f4f560ebf316c7',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: StarlyCard.checkPrice,
     argumentIndices: [0, 1],
     currency: 'FUSD',
@@ -36,7 +37,7 @@ const localValidationDataStore: any = {
   cea6b2d18abce452e0b57a7393642a9358de23ebd5dffa1589563162d0ab44c4: {
     name: 'test',
     hash: 'cea6b2d18abce452e0b57a7393642a9358de23ebd5dffa1589563162d0ab44c4',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: `
         pub fun main(price: UInt64): UInt64 {
         return price
@@ -47,7 +48,7 @@ const localValidationDataStore: any = {
   '90a98a083323783825de1342d1368578d3f21c2ed86db2b41257127260f9d491': {
     name: 'chainmonsters.cdc',
     hash: '90a98a083323783825de1342d1368578d3f21c2ed86db2b41257127260f9d491',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: Chainmonsters.checkPrice,
     argumentIndices: [0, 1, 2],
     currency: 'FUSD',
@@ -55,7 +56,7 @@ const localValidationDataStore: any = {
   '5d33c8d76cc3a3123db1c73738fca9eb631d7cff0af0d39695abe3542c7bbd9d': {
     name: 'cheeze.cdc',
     hash: '5d33c8d76cc3a3123db1c73738fca9eb631d7cff0af0d39695abe3542c7bbd9d',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: Cheeze.checkPrice,
     argumentIndices: [0],
     currency: 'FUSD',
@@ -63,7 +64,7 @@ const localValidationDataStore: any = {
   '3919948bd5ff5d05508e1fc21af3526e78106ccd494b28e31608e6d2d2de999a': {
     name: 'darkcountry.cdc',
     hash: '3919948bd5ff5d05508e1fc21af3526e78106ccd494b28e31608e6d2d2de999a',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: DarkCountry.checkPrice,
     argumentIndices: [0, 1],
     currency: 'FLOW',
@@ -71,7 +72,7 @@ const localValidationDataStore: any = {
   '074aa0326b04001aeb7ee6a1b4ea4d3cd4d66aecc0d02434361a524c99fc518f': {
     name: 'darkcountry-sf.cdc',
     hash: '074aa0326b04001aeb7ee6a1b4ea4d3cd4d66aecc0d02434361a524c99fc518f',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: Storefront.checkPrice,
     argumentIndices: [1, 0, 2],
     currency: 'FLOW',
@@ -103,7 +104,7 @@ const localValidationDataStore: any = {
   '8961f122c878ebf18e72f776ba1677b3a3a1a24b58b30b22f14e15420e50b4cf': {
     name: 'evolution.cdc',
     hash: '8961f122c878ebf18e72f776ba1677b3a3a1a24b58b30b22f14e15420e50b4cf',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: Storefront.checkPrice,
     argumentIndices: [1, 0, 2],
     currency: 'FLOW',
@@ -116,10 +117,18 @@ const localValidationDataStore: any = {
     argumentIndices: [2],
     currency: 'FLOW',
   },
+  '5d328fdc17529f1f761e6058e89b760d1165a209095c5d4cddb628688db37810': {
+    name: 'goatedgoats.cdc',
+    hash: '7bd749c085f78d69f912748c3960be5fb614a065c7d55addf65897040961fe5c',
+    validationStrategy: 'scriptExecution',
+    script: GoatedGoats.checkPaymentDetails,
+    argumentIndices: [0, 1, 2, 3],
+    currency: '',
+  },
   '635a0de778d7104dad618737fd69e0696af71b035032adbb3d16c8ffe4a18a72': {
     name: 'irnft.cdc',
     hash: '635a0de778d7104dad618737fd69e0696af71b035032adbb3d16c8ffe4a18a72',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: IrNFT.checkPrice,
     argumentIndices: [0],
     currency: 'FUSD',
@@ -127,7 +136,7 @@ const localValidationDataStore: any = {
   '36e69ba56fdc5da339f7a85746cdd6be36d7401359dccda3e98502b4d1f53518': {
     name: 'kollektion.cdc',
     hash: '36e69ba56fdc5da339f7a85746cdd6be36d7401359dccda3e98502b4d1f53518',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: Storefront.checkPrice,
     argumentIndices: [0, 1, 2],
     currency: 'FLOW',
@@ -135,7 +144,7 @@ const localValidationDataStore: any = {
   '0dad260a3a5e9b975da7ad8f8710481c87a9ed0f4931748591179079f6330726': {
     name: 'matrixworld.cdc',
     hash: '0dad260a3a5e9b975da7ad8f8710481c87a9ed0f4931748591179079f6330726',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: MatrixWorld.checkPrice,
     argumentIndices: [0, 1, 2],
     currency: 'FLOW',
@@ -143,7 +152,7 @@ const localValidationDataStore: any = {
   '9723c94f73f622d84daccf1711ddc7b8d02e93fe195a70bbbcc0da076a61ffe3': {
     name: 'motogp_card.cdc',
     hash: '9723c94f73f622d84daccf1711ddc7b8d02e93fe195a70bbbcc0da076a61ffe3',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: MotoGP.checkPrice,
     argumentIndices: [0, 1],
     currency: 'REVV',
@@ -151,7 +160,7 @@ const localValidationDataStore: any = {
   '06e2ded3a8332f39da8a6a4cd63d6622959d7567731ad08ddc6d9574b643c9af': {
     name: 'motogp_pack.cdc',
     hash: '06e2ded3a8332f39da8a6a4cd63d6622959d7567731ad08ddc6d9574b643c9af',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: MotoGP.checkPrice,
     argumentIndices: [0, 1],
     currency: 'REVV',
@@ -159,7 +168,7 @@ const localValidationDataStore: any = {
   eecfc688a5bbe0c5764d7749ea06730bb5f50683797b878cea382487c502b816: {
     name: 'mugenart.cdc',
     hash: 'eecfc688a5bbe0c5764d7749ea06730bb5f50683797b878cea382487c502b816',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: Storefront.checkPrice,
     argumentIndices: [0, 1, 2],
     currency: 'FLOW',
@@ -167,7 +176,7 @@ const localValidationDataStore: any = {
   '268502407c93672d399af1d2a72217313c485ddabc77382d6cebb0a21b0d882d': {
     name: 'mynft.cdc',
     hash: '268502407c93672d399af1d2a72217313c485ddabc77382d6cebb0a21b0d882d',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: Storefront.checkPrice,
     argumentIndices: [0, 1, 2],
     currency: 'FLOW',
@@ -175,7 +184,7 @@ const localValidationDataStore: any = {
   '4b612dfcf1c94c5c9e669717d6bf8218e9e69eeba595a2b3b58b1f933b222ff0': {
     name: 'ovonft.cdc',
     hash: '4b612dfcf1c94c5c9e669717d6bf8218e9e69eeba595a2b3b58b1f933b222ff0',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: Storefront.checkPrice,
     argumentIndices: [0, 1, 2],
     currency: 'FLOW',
@@ -183,7 +192,7 @@ const localValidationDataStore: any = {
   bee1aac6aa79f93f8301aaba628e3e9dbe02b26834f5099dac4726ffd7965c15: {
     name: 'partygoobers-sf.cdc',
     hash: 'bee1aac6aa79f93f8301aaba628e3e9dbe02b26834f5099dac4726ffd7965c15',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: Storefront.checkPrice,
     argumentIndices: [1, 0, 2],
     currency: 'FLOW',
@@ -191,7 +200,7 @@ const localValidationDataStore: any = {
   e1a027c6f21a4d2cbf4377cd763f86b1ffc997e5c15e948f14a0b779ede775d6: {
     name: 'partygoobers.cdc',
     hash: 'e1a027c6f21a4d2cbf4377cd763f86b1ffc997e5c15e948f14a0b779ede775d6',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: PartyGoobers.checkPrice,
     argumentIndices: [0, 1],
     currency: 'FLOW',
@@ -199,7 +208,7 @@ const localValidationDataStore: any = {
   e34fb7409f5b9dfa47ff7056c207900ad3347a44f1e009f25666a7fb4b050418: {
     name: 'rarerooms.cdc',
     hash: 'e34fb7409f5b9dfa47ff7056c207900ad3347a44f1e009f25666a7fb4b050418',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: Storefront.checkPrice,
     argumentIndices: [1, 0, 2],
     currency: 'FLOW',
@@ -207,7 +216,7 @@ const localValidationDataStore: any = {
   '18c885e7522dc1ec188ab809c538b3984a36d33dcfd19d41c7239910b680693b': {
     name: 'rarible.cdc',
     hash: '18c885e7522dc1ec188ab809c538b3984a36d33dcfd19d41c7239910b680693b',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: Rarible.checkPrice,
     argumentIndices: [0, 1, 2],
     currency: 'FLOW',
@@ -215,7 +224,7 @@ const localValidationDataStore: any = {
   '7851d1a2d3308ed0417158ea5433ab9bc4660575d90f43eab9b9e981cbbfbbaa': {
     name: 'someplace.cdc',
     hash: '7851d1a2d3308ed0417158ea5433ab9bc4660575d90f43eab9b9e981cbbfbbaa',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: Rarible.checkPrice,
     argumentIndices: [0, 1, 2],
     currency: 'FLOW',
@@ -223,7 +232,7 @@ const localValidationDataStore: any = {
   '877644167da310c66a9ce7336725787056ef62b5afb92c82a73724ce9fa22849': {
     name: 'starly2.cdc',
     hash: '877644167da310c66a9ce7336725787056ef62b5afb92c82a73724ce9fa22849',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: StarlyCard.checkPrice,
     argumentIndices: [0, 1],
     currency: 'FUSD',
@@ -231,7 +240,7 @@ const localValidationDataStore: any = {
   '512c2248439922960a1aa89472bc39dae2a1e26dc4373b81f03b8f8fd4ba8204': {
     name: 'starly3.cdc',
     hash: '512c2248439922960a1aa89472bc39dae2a1e26dc4373b81f03b8f8fd4ba8204',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: Storefront.checkPrice,
     argumentIndices: [1, 0, 2],
     currency: 'FLOW',
@@ -239,7 +248,7 @@ const localValidationDataStore: any = {
   ad481d6aa482159f1411cc214c183c0901d322f8d58f0f0e56613d6cb066f69e: {
     name: 'sturdyexchange.cdc',
     hash: 'ad481d6aa482159f1411cc214c183c0901d322f8d58f0f0e56613d6cb066f69e',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: Storefront.checkPrice,
     argumentIndices: [0, 1, 2],
     currency: 'DUC',
@@ -255,7 +264,7 @@ const localValidationDataStore: any = {
   d2cf48a2ff6c6d814efa174e27f350d7ef6ee7d3c6096b3d9de25c3930f7adef: {
     name: 'thefootballclub.cdc',
     hash: 'd2cf48a2ff6c6d814efa174e27f350d7ef6ee7d3c6096b3d9de25c3930f7adef',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: Storefront.checkPrice,
     argumentIndices: [0, 1, 2],
     currency: 'FUSD',
@@ -263,7 +272,7 @@ const localValidationDataStore: any = {
   '3c2ee7345bb13d5a404896fc0badef29ffb9a942c91aa98f3cecc104d228d1f6': {
     name: 'topshot.cdc',
     hash: '3c2ee7345bb13d5a404896fc0badef29ffb9a942c91aa98f3cecc104d228d1f6',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: TopShot.checkPrice,
     argumentIndices: [0, 1],
     currency: 'DUC',
@@ -271,7 +280,7 @@ const localValidationDataStore: any = {
   bf4310fcbe56cf2e768162637d152f0a2cf0e3d4fbfcec1c888da83bbd7bea26: {
     name: 'versus.cdc',
     hash: 'bf4310fcbe56cf2e768162637d152f0a2cf0e3d4fbfcec1c888da83bbd7bea26',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: Versus.checkPrice,
     argumentIndices: [0, 1, 2, 3],
     currency: 'FLOW',
@@ -279,7 +288,7 @@ const localValidationDataStore: any = {
   '56d420d0c4a7d6c20b7b051d30476ec2e008abba7e808cc7736e1b84bf5550b3': {
     name: 'zeedz_fiattoken.cdc',
     hash: '56d420d0c4a7d6c20b7b051d30476ec2e008abba7e808cc7736e1b84bf5550b3',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: Storefront.checkPrice,
     argumentIndices: [1, 0, 2],
     currency: 'USDC',
@@ -287,7 +296,7 @@ const localValidationDataStore: any = {
   '561ed100407cf299fbac26d1ea32e7a32e509dd2107cfd8eb74aa97679be4125': {
     name: 'zeedz_flowtoken.cdc',
     hash: '561ed100407cf299fbac26d1ea32e7a32e509dd2107cfd8eb74aa97679be4125',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: Storefront.checkPrice,
     argumentIndices: [1, 0, 2],
     currency: 'FLOW',
@@ -295,7 +304,7 @@ const localValidationDataStore: any = {
   '469db399f71db50fce1b17e421e000663f700ea45c9330b9d589b53b577f0fec': {
     name: 'zeedz_fusd.cdc',
     hash: '469db399f71db50fce1b17e421e000663f700ea45c9330b9d589b53b577f0fec',
-    validationStrategy: 'scriptExecution',
+    validationStrategy: 'scriptBasedAmount',
     script: Storefront.checkPrice,
     argumentIndices: [1, 0, 2],
     currency: 'FUSD',

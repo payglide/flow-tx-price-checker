@@ -2,7 +2,7 @@ import { PaymentAmount, PaymentAmountResolver, Transaction, Argument, PriceCheck
 import * as fcl from '@onflow/fcl'
 import { resolveArg } from '../fcl-utils'
 
-export class ScriptExecutionResolver implements PaymentAmountResolver {
+export class ScriptBasedAmountResolver implements PaymentAmountResolver {
   constructor(accessNodeApi: string) {
     fcl.config().put('accessNode.api', accessNodeApi)
   }
@@ -12,15 +12,15 @@ export class ScriptExecutionResolver implements PaymentAmountResolver {
 
     const fclArgs = (arg: any, t: any) => scriptArgs.map(({ value, type }) => resolveArg(value, type, arg, t))
 
-    const result: any = await fcl.query({
+    const result = await fcl.query({
       cadence: params.script,
       args: fclArgs,
     })
 
     return {
       transactionHash: params.hash,
-      amount: result.amount,
-      currency: result.currency,
+      amount: result,
+      currency: params.currency,
     }
   }
 }

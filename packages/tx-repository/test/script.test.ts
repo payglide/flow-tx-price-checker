@@ -44,6 +44,7 @@ describe('tx-repository module', () => {
     ['zeedz_fiattoken.cdc', 'storefront'],
     ['zeedz_flowtoken.cdc', 'storefront'],
     ['zeedz_fusd.cdc', 'storefront'],
+    ['goatedgoats.cdc', 'goatedgoats'],
   ])('Transaction %p should return script: %p', (tx: string, script: string) => {
     const txCode = fs.readFileSync(`${__dirname}/../cadence/transactions/${tx}`, { encoding: 'utf-8' })
     const sha = new SHA3(256)

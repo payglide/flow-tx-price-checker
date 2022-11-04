@@ -1,10 +1,11 @@
 import { sha3_256 } from '../fcl-utils'
 import { ok, err, Result } from 'neverthrow'
 import { PaymentAmountResolver, Transaction, PaymentAmount, ValidatorError, TxRepository } from '../types'
-import { ScriptExecutionResolver, ArgumentBasedResolver } from '..'
+import { ScriptBasedAmountResolver, ArgumentBasedResolver, ScriptExecutionResolver } from '..'
 
 export function createDefaultPriceChecker(repository: TxRepository, flowAccessNodeApi: string): PaymentAmountValidator {
   const validator = new PaymentAmountValidator(repository)
+  validator.registerResolver('scriptBasedAmount', new ScriptBasedAmountResolver(flowAccessNodeApi))
   validator.registerResolver('scriptExecution', new ScriptExecutionResolver(flowAccessNodeApi))
   validator.registerResolver('argumentBased', new ArgumentBasedResolver())
   return validator
